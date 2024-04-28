@@ -4,9 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to my site!</title>
+    <link rel="shortcut icon" href="images/atom.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body class="background">
-    I'm Lance. <br />It's Awesome.
+    <div class="container">
+        <div class="window active" style="max-width: 400px; max-height: 400px;">
+            <div class="title-bar">
+              <div class="title-bar-text">Hello!</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-body has-space">
+            <div class="about-me-container">
+                <menu role="tablist" aria-label="Window with Tabs">
+                    <button role="tab" aria-controls="about-me" aria-selected="true">About me</button>
+                    <button role="tab" aria-controls="music">Music</button>
+                    <button role="tab" aria-controls="socials">My Socials!</button>
+                  </menu>
+                  <article role="tabpanel" id="about-me">
+                    Hello there! I'm Lance Pascual B. Agustin and you can call me <b>Lans</b>.
+
+                    <p>I'm currently a 2nd year college student taking up BS Information Systems in the De La Salle University - Manila. 
+                        I made this github page as sort of a practice on my web development skills after taking up CCAPDEV on the 2nd term of AY 2023-2024. 
+                        <br/><br>
+                        Anyway, Welcome to my page once again! As of now, I'll probably keep this as sort of a fan-dump or whatever as I still have no time on working on my professional portfolio HAHAHAH.
+                        <br><br/>
+                        <b>FAQs:</b>
+
+                    </p> 
+                    <fieldset>
+                      <legend>How are you feeling?</legend>
+                      <div class="field-row">
+                        <input id="radio31" type="radio" name="fieldset-example2">
+                        <label for="radio31">Feeling great!</label>
+                      </div>
+                      <div class="field-row">
+                        <input id="radio32" type="radio" name="fieldset-example2">
+                        <label for="radio32">I'm doing alright.</label>
+                      </div>
+                      <div class="field-row">
+                        <input id="radio33" type="radio" name="fieldset-example2">
+                        <label for="radio33">A bit down lately...</label>
+                      </div>
+                    </fieldset>
+
+                  </article>
+            </div>
+          
+              <article role="tabpanel" hidden id="music">
+                <div class="music-container">
+                    Here are albums and playlists that might help you to get to know me more! <br><br>
+
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/3mH6qwIy9crq0I9YQbOuDf?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5Bp1EX2ypdFnJ5IUyiRl8w?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/1QpFitywD6FWjFWvTmLOw9?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4Xq8cwyZ2dSfGcXizW3eSB?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6ShntrcToVUj8sInJCFXE0?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1dEzfg2Wj0lgWKpgzXxCPX?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                </div>          
+              </article>
+          
+              <article role="tabpanel" hidden id="socials">
+                <div class="socials-container">
+                    You can reach me out here! <br><br>
+                    <div class="social">
+                        <img src="images/gmail_icon.png" class="icon"> <div class="username">lance_agustin@dlsu.edu.ph</div>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.instagram.com/lowpressure4rea/" target="_blank"><img src="images/instagram_icon.png" class="icon"></a> <div class="username">lowpressure4rea</div>
+                    </div>
+                    <div class="social">
+                        <a href="www.linkedin.com/in/lance-pascual-agustin-831428291" target="_blank"><img src="images/linkedin_icon.png" class="icon"></a> <div class="username">Lance Pascual Agustin</div> 
+                    </div>
+                    <div class="social">
+                        <a href="https://open.spotify.com/user/gun3%24oon?si=caa2c08b9f064d60" target="_blank"><img src="images/spotify_icon.png" class="icon"></a> <div class="username">lans.</div>
+                    </div>
+                </div>
+              </article>
+              <section class="field-row" style="justify-content: flex-end">
+              
+              </section>
+            </div>
+          </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('[role="tab"]');
+        const tabList = document.querySelector('[role="tablist"]');
+      
+        tabs.forEach(tab => {
+          tab.addEventListener('click', changeTab);
+        });
+      
+        function changeTab(e) {
+          // Remove 'aria-selected' attribute from all tabs
+          tabs.forEach(tab => {
+            tab.setAttribute('aria-selected', false);
+          });
+          // Hide all tab panels
+          const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+          tabPanels.forEach(panel => {
+            panel.setAttribute('hidden', true);
+          });
+          // Set the clicked tab as selected
+          e.target.setAttribute('aria-selected', true);
+          // Show the corresponding tab panel
+          const tabId = e.target.getAttribute('aria-controls');
+          const selectedPanel = document.getElementById(tabId);
+          selectedPanel.removeAttribute('hidden');
+        }
+      </script>
 </body>
 </html>
+
