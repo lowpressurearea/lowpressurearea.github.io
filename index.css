@@ -7,13 +7,31 @@
 }
 
 .container {
-    margin-top: 250px;
-    margin-left: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Add other styles as needed */
 }
+
+.hidden {
+    display: none;
+  }
 
 .about-me-container {
     overflow-y: scroll;
     max-height: 300px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-pic {
+    height: 250px;
+    width: 190px;
 }
 
 .socials-container {
@@ -34,6 +52,41 @@
 .music-container {
     overflow-y: scroll;
     max-height: 300px;
+}
+
+.background-blur:hover {
+    position: absolute;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74px; /* Same width as the .exe div */
+    height: 84px; /* Same height as the .exe div */
+    backdrop-filter: blur(8px); /* Apply blur effect and adjust color */
+    background-color: rgba(255,255,255,.3);; /* Specify the color of the background blur */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+}
+
+
+.exe {
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    flex-direction: column;
+    height: 84px;
+    width: 74px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  
+.exe-icon {
+    margin-top: 10px;
+    height: 54px;
+    width: 54px;
 }
 
 .icon {

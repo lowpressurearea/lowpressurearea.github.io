@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="https://unpkg.com/7.css">
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body class="background">
 
-    <div class="container">
-        <div class="window active" style="max-width: 400px; max-height: 400px;">
+  <div class="background-blur">
+    <div class="exe" onclick="openContainer()">
+      <img src="images/atom.png" class="exe-icon">
+      <span style="color:white;">Hello.exe</span>
+    </div>
+  </div>
+  
+    
+    <div id="container" class="container hidden">
+        <div class="window active" style="width: 400px; max-height: 400px;">
             <div class="title-bar">
               <div class="title-bar-text">Hello!</div>
               <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Close"></button>
+                <button aria-label="Close" onclick="closeContainer()"></button>
               </div>
             </div>
             <div class="window-body has-space">
@@ -27,9 +35,11 @@
                     <button role="tab" aria-controls="socials">My Socials!</button>
                   </menu>
                   <article role="tabpanel" id="about-me">
-                    Hello there! I'm Lance Pascual B. Agustin and you can call me <b>Lans</b>.
-
-                    <p>I'm currently a 2nd year college student taking up BS Information Systems in the <a href="https://youtu.be/2ErMDpIK_Cs?feature=shared&t=8" target="_blank" text-decoration: none; font-weight: bold; color: black;" onmouseover="this.style.color='green'" onmouseout="this.style.color='black'">De La Salle University - Manila.</a> 
+                    Hello there! I'm Lance Pascual B. Agustin and you can call me <strong>Lans</strong>. <br /><br>
+                    <div class="img-container">
+                      <img src="images/dpblast.jpg" class="display-pic">
+                    </div>
+                    <p>I'm currently a 2nd year college student taking up BS Information Systems in the <a href="https://youtu.be/2ErMDpIK_Cs?feature=shared&t=8" target="_blank" style="font-weight: bold; color: black;" onmouseover="this.style.color='green'" onmouseout="this.style.color='black'">De La Salle University - Manila.</a> 
                         I made this github page to serve as a reminder as well as a practice on my web development skills after taking up CCAPDEV. 
                         <br/><br>
                         Anyway, Welcome to my page once again! As of now, It's still under maintenance and I'll probably keep this as sort of a fan-dump or whatever as I still have no time on turning my portfolio "professional" HAHAHAH.
@@ -40,13 +50,13 @@
                                 <p>I was born on November 26, 2004 in ******, *****</p>
                             <li>What's your height?</li>
                                 <p>5'4 'pag low tide, 5'10 'pag high tide :D.</p>
-                            <li>Why did you pursue a degreen in Information Systems?</li>
-                                <p>Honestly, I view it as a course that caters my needs as I'm geeting both soft skills (business courses under the curriculum)
+                            <li>Why did you pursue a degree in Information Systems?</li>
+                                <p>Honestly, I view it as a course that caters my needs as I'm getting both soft skills (business courses under the curriculum)
                                     as well as hard skills (Techinal courses specifically those that involve programming, coding, and application development).
                                     I believe that it's a <i>well-rounded</i> degree and fits my personality.
                                 </p>
                             <li>Single?</li>
-                                <p>Double.</p>
+                                <p>Double Shot.</p>
                             <li>What's your motto or mantra?</li>
                                 <p>"Go Krazy Go Stoopid"</p>
                         </ul>
@@ -87,7 +97,7 @@
           
               <article role="tabpanel" hidden id="socials">
                 <div class="socials-container">
-                    You can reach me out here or be mutuals here!
+                    You can reach or be mutuals with me here!
                     <br><br>
 
                     <div class="social">
@@ -97,7 +107,7 @@
                         <a href="https://www.instagram.com/lowpressure4rea/" target="_blank"><img src="images/instagram_icon.png" class="icon"></a> <div class="username">lowpressure4rea</div>
                     </div>
                     <div class="social">
-                        <a href="www.linkedin.com/in/lance-pascual-agustin-831428291" target="_blank"><img src="images/linkedin_icon.png" class="icon"></a> <div class="username">Lance Pascual Agustin</div> 
+                        <a href="https://www.linkedin.com/in/lance-pascual-agustin-831428291/" target="_blank"><img src="images/linkedin_icon.png" class="icon"></a> <div class="username">Lance Pascual Agustin</div> 
                     </div>
                     <div class="social">
                         <a href="https://open.spotify.com/user/gun3%24oon?si=caa2c08b9f064d60" target="_blank"><img src="images/spotify_icon.png" class="icon"></a> <div class="username">lans.</div>
@@ -113,6 +123,17 @@
     </div>
 
     <script>
+
+function openContainer() {
+    var container = document.getElementById('container');
+    container.classList.remove('hidden');
+}
+
+function closeContainer() {
+    var container = document.getElementById('container');
+    container.classList.add('hidden');
+}
+
         const tabs = document.querySelectorAll('[role="tab"]');
         const tabList = document.querySelector('[role="tablist"]');
       
@@ -137,6 +158,50 @@
           const selectedPanel = document.getElementById(tabId);
           selectedPanel.removeAttribute('hidden');
         }
+
+        function makeDraggable(element) {
+            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(element.id + "-header")) {
+                // If present, the header is where you move the DIV from:
+                document.getElementById(element.id + "-header").onmousedown = dragMouseDown;
+            } else {
+                // Otherwise, move the DIV from anywhere inside the DIV:
+                element.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                // stop moving when mouse button is released:
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+        // Make the container draggable
+        makeDraggable(document.querySelector('.container'));
       </script>
 </body>
 </html>
