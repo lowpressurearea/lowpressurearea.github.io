@@ -22,7 +22,7 @@
 .about-me-container {
     overflow-y: scroll;
     max-height: 300px;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Comic Sans MS';
 }
 
 .img-container {
@@ -53,7 +53,7 @@
 
 .music-container {
     overflow-y: scroll;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Comic Sans MS';
     width: 300px;
     max-height: 300px;
 }
