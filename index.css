@@ -41,6 +41,10 @@
     flex-direction: column;
 }
 
+.socials-liner {
+    font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+}
+
 .social {
     display: flex;
     margin: 10px;
