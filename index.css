@@ -55,6 +55,12 @@
     margin-top: 5px;
 }
 
+.myself-container {
+    overflow-y: scroll;
+    max-height: 300px;
+    font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+}
+
 .music-container {
     overflow-y: scroll;
     font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
