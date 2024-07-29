@@ -23,6 +23,7 @@
     overflow-y: scroll;
     max-height: 300px;
     font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+    margin-bottom: 10px;
 }
 
 .img-container {
@@ -65,7 +66,7 @@
     overflow-y: scroll;
     font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
     width: 300px;
-    max-height: 300px;
+    max-height: 280px;
 }
 
 .background-blur:hover {
